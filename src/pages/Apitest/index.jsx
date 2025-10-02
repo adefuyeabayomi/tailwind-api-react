@@ -3,13 +3,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Apitest = () => {
-
-
   const base_url = "https://jsonplaceholder.typicode.com";
   const path = "/todos";
   const fullUrl = `${base_url}${path}`;
-  
-// GET REQUEST 
+
+  // GET REQUEST
   const [getMessage, setGetMessage] = useState("");
   const getRequest = async () => {
     try {
@@ -25,7 +23,7 @@ const Apitest = () => {
     }
   };
 
-// GET BY ID REQUEST
+  // GET BY ID REQUEST
   const [todoData, setTodoData] = useState(null);
   const [todoId, setTodoId] = useState("");
   const getTodoById = async () => {
@@ -42,7 +40,7 @@ const Apitest = () => {
     }
   };
 
-  // POST REQUEST 
+  // POST REQUEST
   const [postResponse, setPostResponse] = useState("");
   const [text1, setText1] = useState("");
   const [text2, setText2] = useState("");
@@ -69,8 +67,7 @@ const Apitest = () => {
     }
   };
 
-
-  // PUT REQUEST 
+  // PUT REQUEST
   const [putResponse, setPutResponse] = useState("");
   const [putData, setPutData] = useState({
     id: 1,
@@ -117,6 +114,9 @@ const Apitest = () => {
       const response = await fetch("https://httpbin.org/post", {
         method: "POST",
         body: formData,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       });
       const data = await response.json();
       console.log("Image Upload Response:", data);
